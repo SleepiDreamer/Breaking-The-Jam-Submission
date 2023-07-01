@@ -35,6 +35,5 @@ namespace Tmpl8
 		if (++frame == 36) frame = 0;
 
 		// Change om ff te testen
-		// Change om ff te testen
 	}
 };
