@@ -33,5 +33,8 @@ namespace Tmpl8
 		rotatingGun.SetFrame(frame);
 		rotatingGun.Draw(screen, 100, 100);
 		if (++frame == 36) frame = 0;
+
+		// Change om ff te testen
+		// Change om ff te testen
 	}
 };
