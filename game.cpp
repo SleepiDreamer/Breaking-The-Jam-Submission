@@ -16,6 +16,7 @@ namespace Tmpl8
 	// -----------------------------------------------------------
 	void Game::Shutdown()
 	{
+		// test 2
 	}
 
 	static Sprite rotatingGun(new Surface("assets/aagun.tga"), 36);
