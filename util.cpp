@@ -25,14 +25,6 @@ namespace Tmpl8
 		return sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
 	}
 
-	// returns the distance between two points in 2D space, but squared
-	float distanceBetweenSquared(const vec2 a, const vec2 b)
-	{
-		const float dx = b.x - a.x;
-		const float dy = b.y - a.y;
-		return dx * dx + dy * dy;
-	}
-
 	// returns the distance between two points in 2D space, but squared, less precision
 	int distanceBetweenSquaredFast(int x1, int y1, int x2, int y2)
 	{
@@ -51,29 +43,10 @@ namespace Tmpl8
 		return 1.5f * PI;
 	}
 
-	// returns the direction (in radians) someone at p1 should point towards if they were to look at p2, but in a different way than RotationBetweenPoints
-	float calcDir(const vec2& _vel)
-	{
-		return atan2(_vel.y, _vel.x);
-	}
-
 	// returns the scalar speed of a given velocity vector
 	float calcSpeed(const vec2& _vel)
 	{
 		return sqrt(_vel.x * _vel.x + _vel.y * _vel.y);
-	}
-
-	// calculates the reflection of a vector on a surface with a given normal
-	vec2 reflectVector(const vec2& _vel, const vec2& _normal)
-	{
-		const vec3 vel = { _vel.x, _vel.y, 0 }; // convert to 3d vector because dot product is only implemented for 3d vectors
-		const vec3 normal = { _normal.x, _normal.y, 0 };
-		const vec2 result =
-		{
-			_vel.x - 2 * normal.x * (dot(normal, vel) / dot(normal, normal)),
-			_vel.y - 2 * normal.y * (dot(normal, vel) / dot(normal, normal))
-		};
-		return result;
 	}
 
 	// converts a vector to an angle in radians
@@ -100,14 +73,8 @@ namespace Tmpl8
 		return dis(gen);
 	}
 
-	// checks if the given point is inside the screen
-	bool insideScreen(vec2 _pos)
-	{
-		return _pos.x > 0 && _pos.x < ScreenWidth && _pos.y > 0 && _pos.y < ScreenHeight;
-	}
-
 	// checks if the given point is inside the given rectangle
-	bool insideRect(vec2 _point, vec2 _pos1, vec2 _pos2)
+	bool pointInsideRect(vec2 _point, vec2 _pos1, vec2 _pos2)
 	{
 		return _point.x > _pos1.x && _point.x < _pos2.x && _point.y > _pos1.y && _point.y < _pos2.y;
 	}

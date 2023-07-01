@@ -12,8 +12,6 @@ namespace Tmpl8
 		return distanceBetween(pos1.x, pos1.y, pos2.x, pos2.y);
 	}
 
-	float distanceBetweenSquared(const vec2 a, const vec2 b);
-
 	int distanceBetweenSquaredFast(int x1, int y1, int x2, int y2);
 
 	/**
@@ -29,8 +27,6 @@ namespace Tmpl8
 		return RotationBetweenPoints(pos1.x, pos1.y, pos2.x, pos2.y);
 	}
 
-	const vec2& calcDir(const vec2& _vel);
-
 	float calcSpeed(const vec2& _vel);
 
 	vec2 reflectVector(const vec2& _vel, const vec2& _normal);
@@ -41,9 +37,7 @@ namespace Tmpl8
 
 	float randfloat(float _min, float _max);
 
-	bool insideScreen(vec2 _pos);
-
-	bool insideRectangle(vec2 _point, vec2 _pos1, vec2 _pos2);
+	bool pointInsideRectangle(vec2 _point, vec2 _pos1, vec2 _pos2);
 
 	float roundNumber(float _number, int _dec);
 

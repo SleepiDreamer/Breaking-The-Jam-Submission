@@ -11,7 +11,7 @@ constexpr int BlueMask = 0x0000ff;
 
 typedef unsigned int Pixel; // unsigned int is assumed to be 32-bit, which seems a safe assumption.
 
-inline Pixel AddBlend( Pixel a_Color1, Pixel a_Color2 )
+inline Pixel AddBlend(Pixel a_Color1, Pixel a_Color2)
 {
 	const unsigned int r = (a_Color1 & RedMask) + (a_Color2 & RedMask);
 	const unsigned int g = (a_Color1 & GreenMask) + (a_Color2 & GreenMask);
@@ -23,7 +23,7 @@ inline Pixel AddBlend( Pixel a_Color1, Pixel a_Color2 )
 }
 
 // subtractive blending
-inline Pixel SubBlend( Pixel a_Color1, Pixel a_Color2 )
+inline Pixel SubBlend(Pixel a_Color1, Pixel a_Color2)
 {
 	int red = (a_Color1 & RedMask) - (a_Color2 & RedMask);
 	int green = (a_Color1 & GreenMask) - (a_Color2 & GreenMask);
@@ -33,6 +33,8 @@ inline Pixel SubBlend( Pixel a_Color1, Pixel a_Color2 )
 	if (blue < 0) blue = 0;
 	return static_cast<Pixel>(red + green + blue);
 }
+
+Pixel AlphaBlend(int color1, int color2, float alpha);
 
 class Surface
 {
